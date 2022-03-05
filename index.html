@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hangman</title>
+    <script src="js-file.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <h1>Shall we play a game?</h1>
+
+    <button id="btnYes" onclick="showDiv('guessDiv')">Yes</button>
+    <button id="btnNo" onclick="closeWindow()">No, Exit</button>
+    <h2>Guess a letter</h2>
+    <div class="guessBox" id="guessDiv">
+        <textarea id="txtGuess" maxLength="1" onchange="playGame()" rows="1" cols="2"></textarea>
+
+    </div>
+
+    <h3 id="correctWord" class="correctWord"></h3>
+
+
+    <canvas class="gameArea" id="container"></canvas>
+
+    </div>
+
+</body>
+
+
+</html>
