@@ -1,5 +1,5 @@
 html {
-    font-size: 10px;
+    font-size: 14px;
     background-size: cover;
 }
 
@@ -24,9 +24,6 @@ html {
 }
 
 .gridRow {
-    display: flex;
-    flex-wrap: wrap;
-    flex: 4;
     padding-top: 25%;
     background-color: rgb(33, 43, 194);
     border: .4rem solid pink;
@@ -34,10 +31,8 @@ html {
 }
 
 .gameArea {
-    width: "578";
-    height: "200" flex-wrap: wrap;
-    padding-top: 25%;
-    background-color: rgb(204, 204, 204);
+    padding-top: 15%;
+    background-color: rgb(218, 217, 161);
     border: .4rem solid black;
     border-radius: .5rem;
 }
