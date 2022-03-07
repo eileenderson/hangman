@@ -1,46 +1,57 @@
-let wordToGuess = ''; //todo get random word
+let wordToGuess = ''; 
 let errors = 0;
 
-//let btn = document.getElementById("btnYes");
+
 drawGallows();
 fetchText();
+
+// Add Enter action functionality
+var input = document.getElementById("txtGuess");
+
+// Execute a function when the user releases a key on the keyboard
+input.addEventListener("keyup", function (event) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Trigger the button element with a click
+        playGame();
+    }
+});
 
 async function fetchText() {
     let response = await fetch('https://random-word-api.herokuapp.com/word?number=1');
     let data = await response.text();
-    console.log(data);
-    //document.getElementById("demo").innerHTML = data;
+   
     wordToGuess = data;
 
 
 }
 
 function buildWord() {
-
+    let myWord = document.getElementById('correctWord');
 
     for (let i = 0; i < wordToGuess.length; i++) {
-        //filter out "[]"
+       
         if ((/[a-zA-Z]/).test(wordToGuess[i])) {
-            let myWord = document.getElementById('correctWord');
-            //var cell = document.createElement('div');
+            
+            console.log(wordToGuess[i])
             var cell = document.createElement(wordToGuess[i]);
             cell.classList.add("guessBox");
             cell.tagName = wordToGuess[i];
-
-            cell.innerText = " __ ";
+             cell.innerText = "_";
             myWord.appendChild(cell);
         }
     }
 }
 
 function showDiv(divName) {
-    //fetchText();
+    if (errors > 0) {
+        window.location.reload();
+
+    }
     let gameDiv = document.getElementById('gameDiv');
-    // if (gameDiv.style.display !== "none") {
-    // gameDiv.style.display = "none";
-    // } else {
     gameDiv.style.display = "block";
-    //  }
     buildWord();
 }
 
@@ -65,20 +76,39 @@ function fillLetter(myLetter) {
 function playGame() {
     let letter = document.getElementById('txtGuess');
 
-    //add to letters guessed:
     let lettersGuessed = document.getElementById('lettersGuessed');
-    let letterList = lettersGuessed.value;
-
-    lettersGuessed.value = letterList + letter.value;
-
-    if (wordToGuess.includes(letter.value)) {
-        fillLetter(letter.value);
-    } else {
-        errors++;
-        drawBody();
-
+    
+    //check that this is a letter first
+    if (/[^a-zA-Z]/.test(letter.value)) {
+        alert('Please enter only a letter');
+        
+        //clear out bad value
+        letter.value = ""; 
     }
+    //check that this is not a letter already guessed
+    if (lettersGuessed.value.length>0 && lettersGuessed.value.includes(letter.value.toLowerCase())) {
+        alert('Please choose a letter not already guessed');
+       
 
+        //clear out bad value
+        letter.value = "";
+    }
+     else
+    {
+        
+            //add to letters guessed:
+            let letterList = lettersGuessed.value;
+
+            lettersGuessed.value = letterList + letter.value;
+
+        if (wordToGuess.includes(letter.value.toLowerCase())) {
+                fillLetter(letter.value);
+            } else {
+                errors++;
+                drawBody();
+
+            }
+        }
 }
 
 function drawGallows() {

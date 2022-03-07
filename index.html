@@ -10,27 +10,28 @@
 </head>
 
 <body>
-    <h1>Shall we play a game?</h1>
+    <h2>Shall we play a game?</h2>
 
     <button id="btnYes" onclick="showDiv('guessDiv')">Yes</button>
     <button id="btnNo" onclick="closeWindow()">No, Exit</button>
 
     <div id="gameDiv" style="display: none;">
         <div class="guessBox" id="guessDiv">
-            <h2>Guess a letter:
-                <textarea id="txtGuess" maxLength="1" onchange="playGame()" rows="1" cols="2"></textarea></h2>
-            <p><label>Letters Guessed:</label>
-                <textarea id="lettersGuessed"></textarea>
-            </p>
+            <h4>Guess a letter and hit Enter:
+                <textarea id="txtGuess" maxLength="1" onchange="playGame()" rows="1" cols="1"></textarea></h4>
+        <label>Letters Guessed:</label>
+                <textarea id="lettersGuessed" rows="1" cols="20" class="guessedLetters"></textarea>
+            
         </div>
+        <div class="guessBox">
 
-        <h3 id="correctWord" class="correctWord"></h3>
+            <h3 id="correctWord" class="correctWord"></h3>
 
 
 
-        <canvas class="gameArea" id="container" width="578" height="300" ; "></canvas>
-    
+            <canvas class="gameArea" id="container" width="578" height="300"></canvas>
 
+        </div>
     </div>
 
 </body>

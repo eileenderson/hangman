@@ -1,8 +1,12 @@
 html {
-    font-size: 14px;
+    font-size: 10px;
     background-size: cover;
 }
+.guessedLetters{
+    font-size: 16px;
+    color: red;
 
+}
 .container {
     display: grid;
     grid-template-rows: repeat(var(--grid-rows), 1fr);
@@ -11,7 +15,7 @@ html {
 
 .guessBox {
     padding: 1em;
-    border: 1px solid #ddd;
+    
     text-align: left;
 }
 
@@ -19,44 +23,15 @@ html {
     display: flex;
     flex-wrap: nowrap;
     flex: 4;
-    padding-top: 2%;
-    padding-left: 2%;
-}
-
-.gridRow {
-    padding-top: 25%;
-    background-color: rgb(33, 43, 194);
-    border: .4rem solid pink;
-    border-radius: .5rem;
+    padding-top: 1%;
+    padding-left: 1%;
+    font-size: 20px;
+   
 }
 
 .gameArea {
-    padding-top: 15%;
+    padding-top: 5%;
     background-color: rgb(218, 217, 161);
-    border: .4rem solid black;
-    border-radius: .5rem;
-}
-
-.row {
-    flex: 4;
-    padding-top: 25%;
-    background-color: rgb(33, 43, 194);
-    border: .4rem solid pink;
-    border-radius: .5rem;
-}
-
-.hover {
-    position: relative;
-    top: -5px;
-    /* this will raise the element */
-    background-color: red;
-}
-
-.square {
-    width: 25%;
-    height: 0;
-    padding-top: 25%;
-    background-color: rgb(204, 204, 204);
     border: .4rem solid black;
     border-radius: .5rem;
 }
